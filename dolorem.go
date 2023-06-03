@@ -16,12 +16,12 @@ type Dolorem struct {
 	seed              *rand.Rand
 }
 
-func New() (Dolorem, error) {
+func New() (*Dolorem, error) {
 	dict, err := loadDictionary()
 	if err != nil {
-		return Dolorem{}, err
+		return &Dolorem{}, err
 	}
-	return Dolorem{
+	return &Dolorem{
 		dictionary:        dict,
 		seed:              rand.New(rand.NewSource(time.Now().Unix())),
 		paragraph_starter: "Dolorem ipsum dolor sit amet, ",
