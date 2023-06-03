@@ -1,11 +1,15 @@
-package dolorem
+package main
 
 import (
 	"embed"
+	"fmt"
 	"math/rand"
 	"strings"
 	"time"
 )
+
+//go:embed dictionary.txt
+var f embed.FS
 
 type Dolorem struct {
 	dictionary        []string
@@ -14,12 +18,20 @@ type Dolorem struct {
 	seed              *rand.Rand
 }
 
-func New() (*Dolorem, error) {
+func main() {
+	dol, err := New()
+	if err != nil {
+		fmt.Println(err)
+	}
+	fmt.Println(dol)
+}
+
+func New() (Dolorem, error) {
 	dict, err := loadDictionary()
 	if err != nil {
-		return &Dolorem{}, err
+		return Dolorem{}, err
 	}
-	return &Dolorem{
+	return Dolorem{
 		dictionary:        dict,
 		seed:              rand.New(rand.NewSource(time.Now().Unix())),
 		paragraph_starter: "Dolorem ipsum dolor sit amet, ",
@@ -27,8 +39,7 @@ func New() (*Dolorem, error) {
 }
 
 func loadDictionary() ([]string, error) {
-	var f embed.FS
-	content, err := f.ReadFile("data/dictionary.txt")
+	content, err := f.ReadFile("dictionary.txt")
 	if err != nil {
 		return nil, err
 	}
