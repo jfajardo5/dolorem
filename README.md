@@ -7,9 +7,8 @@
 
 <div align="center">
 
-<h2 align="center">Dolorem</h2>
-
-  <p align="center">
+<h1>Dolorem</h1>
+  <p>
     A highly inclusive Lorem Ipsum generator for Go!
     <br />
   </p>
@@ -27,14 +26,6 @@ This package provides Lorem in the following formats:
   * Paragraph(s) - Single or multiple, random paragraphs
   * Sentence - A single, random sentence
   * Word - A random word
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-
-### Built With
-
-* [![Go][Go]][https://go.dev/]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -78,14 +69,6 @@ Project Link: [https://github.com/jfajardo5/dolorem](https://github.com/jfajardo
 
 
 
-<!-- ACKNOWLEDGMENTS -->
-## Acknowledgments
-
-* []()
-* []()
-* []()
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
