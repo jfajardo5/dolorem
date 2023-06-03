@@ -1,11 +1,13 @@
 package dolorem
 
 import (
-	"io/ioutil"
+	"embed"
 	"math/rand"
 	"strings"
 	"time"
 )
+
+var embeddedFiles embed.FS
 
 type Dolorem struct {
 	dictionary        []string
@@ -27,7 +29,7 @@ func New() (Dolorem, error) {
 }
 
 func loadDictionary() ([]string, error) {
-	content, err := ioutil.ReadFile("./dictionary.txt")
+	content, err := embeddedFiles.ReadFile("data/dictionary.txt")
 	if err != nil {
 		return nil, err
 	}
