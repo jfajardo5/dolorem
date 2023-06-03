@@ -90,3 +90,11 @@ Project Link: [https://github.com/jfajardo5/dolorem](https://github.com/jfajardo
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+<!-- MARKDOWN LINKS & IMAGES -->
+<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
+[contributors-shield]: https://img.shields.io/github/contributors/jfajardo5/dolorem.svg?style=for-the-badge
+[contributors-url]: https://github.com/jfajardo5/dolorem/graphs/contributors
+[issues-shield]: https://img.shields.io/github/issues/jfajardo5/dolorem.svg?style=for-the-badge
+[issues-url]: https://github.com/jfajardo5/dolorem/issues
+[license-shield]: https://img.shields.io/github/license/jfajardo5/dolorem.svg?style=for-the-badge
+[license-url]: https://github.com/jfajardo5/dolorem/blob/main/LICENSE.txt
