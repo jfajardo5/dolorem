@@ -7,8 +7,6 @@ import (
 	"time"
 )
 
-var embeddedFiles embed.FS
-
 type Dolorem struct {
 	dictionary        []string
 	paragraph_starter string
@@ -29,7 +27,8 @@ func New() (*Dolorem, error) {
 }
 
 func loadDictionary() ([]string, error) {
-	content, err := embeddedFiles.ReadFile("data/dictionary.txt")
+	var f embed.FS
+	content, err := f.ReadFile("data/dictionary.txt")
 	if err != nil {
 		return nil, err
 	}
