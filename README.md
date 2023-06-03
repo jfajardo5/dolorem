@@ -2,15 +2,12 @@
 <a name="readme-top"></a>
 
 [![Contributors][contributors-shield]][contributors-url]
-[![Forks][forks-shield]][forks-url]
-[![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
 [![MIT License][license-shield]][license-url]
-[![LinkedIn][linkedin-shield]][linkedin-url]
 
 <div align="center">
 
-<h3 align="center">Dolorem</h3>
+<h2 align="center">Dolorem</h2>
 
   <p align="center">
     A highly inclusive Lorem Ipsum generator for Go!
