@@ -1,4 +1,3 @@
-<!-- Improved compatibility of back to top link: See: https://github.com/othneildrew/Best-README-Template/pull/73 -->
 <a name="readme-top"></a>
 
 [![Contributors][contributors-shield]][contributors-url]
@@ -52,7 +51,7 @@ Don't forget to give the project a star! Thanks again!
 <!-- LICENSE -->
 ## License
 
-Distributed under the MIT License. See `LICENSE.txt` for more information.
+Distributed under the MIT License. See `LICENSE` for more information.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -77,4 +76,4 @@ Project Link: [https://github.com/jfajardo5/dolorem](https://github.com/jfajardo
 [issues-shield]: https://img.shields.io/github/issues/jfajardo5/dolorem.svg?style=for-the-badge
 [issues-url]: https://github.com/jfajardo5/dolorem/issues
 [license-shield]: https://img.shields.io/github/license/jfajardo5/dolorem.svg?style=for-the-badge
-[license-url]: https://github.com/jfajardo5/dolorem/blob/main/LICENSE.txt
+[license-url]: https://github.com/jfajardo5/dolorem/blob/main/LICENSE
