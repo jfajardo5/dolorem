@@ -36,6 +36,7 @@ func Ipsum() Dolorem {
 
 func (d *Dolorem) Word() string {
 	index := d.seed.Intn(len(d.dictionary) - 1)
+	d.text = d.dictionary[index]
 	return d.dictionary[index]
 }
 
@@ -51,6 +52,7 @@ func (d *Dolorem) Sentence(length ...int) string {
 			sentence = sentence + " "
 		}
 	}
+	d.text = sentence
 	return sentence
 }
 
@@ -76,6 +78,7 @@ func (d *Dolorem) Paragraph(length ...int) string {
 			paragraph = paragraph + "\n\n"
 		}
 	}
+	d.text = paragraph
 	return paragraph
 }
 
