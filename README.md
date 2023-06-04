@@ -23,9 +23,9 @@ Generate random Lorem Ipsum text for your project, drawing words from the full L
 
 This module provides Lorem in the following formats:
 
-  * Paragraph(s) - Single or multiple, random paragraphs
-  * Sentence - A single, random sentence
-  * Word - A random word
+  * Paragraph(s) - Random paragraph, with customizable options for number of paragraphs, number of sentences per paragraph & number of words per sentence.
+  * Sentence - Random sentence, with customizable options for number of words per sentence.
+  * Word - A random word.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
