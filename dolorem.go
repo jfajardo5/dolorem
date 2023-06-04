@@ -1,16 +1,17 @@
 package dolorem
 
 import (
-	"embed"
+	_ "embed"
 	"math/rand"
 	"strings"
 	"time"
 )
 
-//go:embed dictionary.txt
-var f embed.FS
+// TODO ADD TESTS!
+// TODO ADD COMMENTS!
 
-// TODO WRITE TESTS!
+//go:embed data/latin.txt
+var dictionary string
 
 type Dolorem struct {
 	dictionary        []string
@@ -19,24 +20,13 @@ type Dolorem struct {
 	seed              *rand.Rand
 }
 
-func New() (Dolorem, error) {
-	dict, err := loadDictionary()
-	if err != nil {
-		return Dolorem{}, err
-	}
+func Ipsum() Dolorem {
+	dict := loadDictionary()
 	return Dolorem{
 		dictionary:        dict,
 		seed:              rand.New(rand.NewSource(time.Now().Unix())),
-		paragraph_starter: "Dolorem ipsum dolor sit amet,",
-	}, nil
-}
-
-func loadDictionary() ([]string, error) {
-	content, err := f.ReadFile("dictionary.txt")
-	if err != nil {
-		return nil, err
+		paragraph_starter: "dolorem ipsum dolor sit amet, ",
 	}
-	return strings.Split(string(content), "\n"), nil
 }
 
 func (d *Dolorem) Word() string {
@@ -44,30 +34,47 @@ func (d *Dolorem) Word() string {
 	return d.dictionary[index]
 }
 
-func (d *Dolorem) Sentence() string { //TODO Iron out the kinks
-	var sentence string
-	for i := 0; i < 15; i++ {
-		index := d.seed.Intn(len(d.dictionary) - 1)
-		if i > 0 {
-			sentence = sentence + " " + d.dictionary[index]
-			continue
+func (d *Dolorem) Sentence(length ...int) string {
+	sen_len := 15
+	if len(length) > 0 {
+		sen_len = length[0] // Number of words per Sentence
+	}
+	sentence := ""
+	for i := 0; i < sen_len; i++ {
+		sentence = sentence + d.Word()
+		if i < sen_len-1 {
+			sentence = sentence + " "
 		}
-		sentence = strings.Title(d.dictionary[index])
+		continue
 	}
 	return sentence
 }
 
-func (d *Dolorem) Paragraph(param ...int) string { //TODO Iron out the kinks
+func (d *Dolorem) Paragraph(length ...int) string {
 	num := 1
-	if param != nil {
-		num = param[0]
+	par_len := 7
+	sen_len := 15
+	if len(length) > 0 {
+		num = length[0] // Number of paragraphs
+	}
+	if len(length) > 1 {
+		par_len = length[1] // Number of sentences per Paragraph
+	}
+	if len(length) > 2 {
+		sen_len = length[2] // Number of words per Sentence
 	}
 	var paragraph = d.paragraph_starter
 	for i := 0; i < num; i++ {
-		for j := 0; j < 7; j++ {
-			paragraph = paragraph + " " + d.Sentence()
+		for j := 0; j < par_len; j++ {
+			paragraph = paragraph + d.Sentence(sen_len)
 		}
-		paragraph = paragraph + "."
+		if i < num-1 {
+			paragraph = paragraph + "\n\n"
+		}
 	}
 	return paragraph
+}
+
+func loadDictionary() []string {
+	return strings.Split(dictionary, "\n")
 }
