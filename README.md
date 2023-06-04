@@ -21,7 +21,7 @@
 
 Generate random Lorem Ipsum text for your project, drawing words from the full Latin dictionary!
 
-This package provides Lorem in the following formats:
+This module provides Lorem in the following formats:
 
   * Paragraph(s) - Single or multiple, random paragraphs
   * Sentence - A single, random sentence
