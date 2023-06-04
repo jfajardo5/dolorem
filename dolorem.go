@@ -1,6 +1,3 @@
-// MIT License
-// Copyright (c) 2023 Julio Fajardo
-
 package dolorem
 
 import (
@@ -17,10 +14,10 @@ import (
 var dictionary string
 
 type Dolorem struct {
-	dictionary        []string   // The word dictionary
-	paragraph_starter string     // Sentence that starts the paragraph
-	text              string     // Latest generated text
-	seed              *rand.Rand // RNG for pulling words from dictionary
+	dictionary        []string
+	paragraph_starter string
+	text              string
+	seed              *rand.Rand
 }
 
 func Ipsum() Dolorem {
@@ -34,7 +31,6 @@ func Ipsum() Dolorem {
 
 func (d *Dolorem) Word() string {
 	index := d.seed.Intn(len(d.dictionary) - 1)
-	d.text = d.dictionary[index]
 	return d.dictionary[index]
 }
 
@@ -50,7 +46,6 @@ func (d *Dolorem) Sentence(length ...int) string {
 			sentence = sentence + " "
 		}
 	}
-	d.text = sentence
 	return sentence
 }
 
@@ -76,32 +71,9 @@ func (d *Dolorem) Paragraph(length ...int) string {
 			paragraph = paragraph + "\n\n"
 		}
 	}
-	d.text = paragraph
 	return paragraph
 }
 
 func loadDictionary() []string {
 	return strings.Split(dictionary, "\n")
 }
-
-// MIT License
-//
-// Copyright (c) 2023 Julio Fajardo
-//
-// Permission is hereby granted, free of charge, to any person obtaining a copy
-// of this software and associated documentation files (the "Software"), to deal
-// in the Software without restriction, including without limitation the rights
-// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-// copies of the Software, and to permit persons to whom the Software is
-// furnished to do so, subject to the following conditions:
-//
-// The above copyright notice and this permission notice shall be included in all
-// copies or substantial portions of the Software.
-//
-// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-// SOFTWARE.
