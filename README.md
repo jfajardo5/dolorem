@@ -5,7 +5,7 @@
 [![Issues][issues-shield]][issues-url]
 [![MIT License][license-shield]][license-url]
 
-<div align="center">
+<div align="left">
 
 <h1>Dolorem</h1>
   <p>

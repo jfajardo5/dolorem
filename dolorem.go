@@ -1,8 +1,7 @@
-package main
+package dolorem
 
 import (
 	"embed"
-	"fmt"
 	"math/rand"
 	"strings"
 	"time"
@@ -11,19 +10,13 @@ import (
 //go:embed dictionary.txt
 var f embed.FS
 
+// TODO WRITE TESTS!
+
 type Dolorem struct {
 	dictionary        []string
 	paragraph_starter string
 	text              string
 	seed              *rand.Rand
-}
-
-func main() {
-	dol, err := New()
-	if err != nil {
-		fmt.Println(err)
-	}
-	fmt.Println(dol)
 }
 
 func New() (Dolorem, error) {
@@ -34,7 +27,7 @@ func New() (Dolorem, error) {
 	return Dolorem{
 		dictionary:        dict,
 		seed:              rand.New(rand.NewSource(time.Now().Unix())),
-		paragraph_starter: "Dolorem ipsum dolor sit amet, ",
+		paragraph_starter: "Dolorem ipsum dolor sit amet,",
 	}, nil
 }
 
@@ -46,12 +39,12 @@ func loadDictionary() ([]string, error) {
 	return strings.Split(string(content), "\n"), nil
 }
 
-func (d *Dolorem) SingleWord() string {
+func (d *Dolorem) Word() string {
 	index := d.seed.Intn(len(d.dictionary) - 1)
 	return d.dictionary[index]
 }
 
-func (d *Dolorem) Sentence() string {
+func (d *Dolorem) Sentence() string { //TODO Iron out the kinks
 	var sentence string
 	for i := 0; i < 15; i++ {
 		index := d.seed.Intn(len(d.dictionary) - 1)
@@ -64,7 +57,7 @@ func (d *Dolorem) Sentence() string {
 	return sentence
 }
 
-func (d *Dolorem) Paragraph(param ...int) string {
+func (d *Dolorem) Paragraph(param ...int) string { //TODO Iron out the kinks
 	num := 1
 	if param != nil {
 		num = param[0]

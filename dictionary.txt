@@ -4,7 +4,7 @@ abduco
 abeo
 abscido
 absconditus
-absens,
+absens
 absorbeo
 absque
 abstergo
@@ -78,14 +78,14 @@ aegrotatio
 aegrus
 aeneus
 aequitas
-aequus,
-aer,
+aequus
+aer
 aestas
 aestivus
 aestus
 aetas
 aeternus
-Affligeniensis,
+Affligeniensis
 ager
 aggero
 aggredior
@@ -170,7 +170,7 @@ arbustum
 arbustus
 arca
 arceo
-arcesso,
+arcesso
 arcus
 argentum
 argumentum
@@ -179,7 +179,7 @@ arma
 armarium
 armo
 aro
-ars,
+ars
 articulus
 artificiose
 artificiosus
@@ -208,7 +208,7 @@ auctor
 auctoritas
 auctus
 audacia
-audacter,
+audacter
 audax
 audentia
 audeo
@@ -265,7 +265,7 @@ caelestis
 caelum
 calamitas
 calamus
-calcar,
+calcar
 calco
 calculus
 callide
@@ -363,7 +363,7 @@ cogito
 cognatus
 cognomen
 cognosco
-cogo,
+cogo
 cohaero
 cohibeo
 cohors
@@ -388,7 +388,7 @@ comiter
 comitto
 commemoro
 commeo
-commessatio,
+commessatio
 comminor
 comminuo
 comminus
@@ -405,7 +405,7 @@ compatior
 compello
 comperio
 comperte
-compes,
+compes
 compes
 competo
 complectus
@@ -553,7 +553,7 @@ cruciamentum
 crucio
 crudelis
 cruentus
-crur,
+crur
 crustulum
 crux
 cubicularis
@@ -610,7 +610,7 @@ dapifer
 de
 debeo
 debilito
-decens,
+decens
 decerno
 decerto
 decet
@@ -932,7 +932,7 @@ exsequor
 exsertus
 exsilium
 exspecto
-exstinguo,
+exstinguo
 exsto
 externus
 extollo
@@ -941,7 +941,7 @@ extra
 extremus
 exturbo
 exulto
-exuro,
+exuro
 exustio
 fabula
 facile
@@ -975,7 +975,7 @@ fenestra
 fere
 feretrum
 feritas
-ferme,
+ferme
 fero
 ferrum
 ferus
@@ -995,19 +995,19 @@ fimus
 fines
 finis
 finitimus
-fio,
+fio
 firmo
 firmus
 flamma
 flatus
-flax,
+flax
 fleo
 fluctus
 flumen
 fluo
 fodio
-fore,
-forensis,
+fore
+forensis
 formica
 formo
 fors
@@ -1036,7 +1036,7 @@ frugalitas
 frumentum
 fruor
 frustra
-frux,
+frux
 fuga
 fugio
 fugitivus
@@ -1045,7 +1045,7 @@ fulcio
 fulgeo
 fultus
 fundo
-fungor,
+fungor
 funis
 furibundus
 furor
@@ -1069,7 +1069,7 @@ glacialis
 gladius
 gloria
 glorior
-grando,
+grando
 grassor
 gratia
 gratulor
@@ -1110,7 +1110,7 @@ homo
 honor
 honorabilis
 hora
-hordeum,
+hordeum
 horrendus
 hortor
 hortus
@@ -1225,7 +1225,7 @@ incito
 inclino
 includo
 inclutus
-incola,
+incola
 incompositus
 inconsulte
 incontinencia
@@ -1321,7 +1321,7 @@ iniquus
 initium
 iniuria
 iniustus
-innotesco,
+innotesco
 innotesco
 innuo
 inolesco
@@ -1411,7 +1411,7 @@ iucundus
 iudex
 iudicium
 iudico
-iugis,
+iugis
 iugis
 iumentum
 iungo
@@ -1527,7 +1527,7 @@ lepide
 lepidus
 lepor
 lepus
-Lesciense,
+Lesciense
 letalis
 letaliter
 letanie
@@ -1560,7 +1560,7 @@ libido
 licet
 ligo
 lima
-limen,
+limen
 lingua
 lino
 linteum
@@ -1638,7 +1638,7 @@ Marcieniensis
 mare
 maritus
 mater
-matera,
+matera
 materia
 matertera
 matrimonium
@@ -1663,7 +1663,7 @@ mens
 mensa
 mensis
 merces
-mereo,
+mereo
 mereo
 meretrix
 meridianus
@@ -1691,7 +1691,7 @@ mirus
 misceo
 miser
 misere
-misereo,
+misereo
 misericordia
 missa
 mitesco
@@ -1723,7 +1723,7 @@ Montensem
 mora
 moratlis
 morbus
-mores,
+mores
 morior
 mors
 morsus
@@ -1797,7 +1797,7 @@ niveus
 nobis
 nocens
 noceo
-nolo,
+nolo
 nomen
 nominatim
 nomine
@@ -1890,13 +1890,13 @@ oratio
 orator
 orbis
 ordinatio
-ordine,
+ordine
 ordo
 orior
 ornatus
 orno
 oro
-os,
+os
 ostendo
 ostium
 otium
@@ -1904,7 +1904,7 @@ ovis
 paciscor
 pactum
 pactus
-paene,
+paene
 paganus
 pala
 palam
@@ -1957,7 +1957,7 @@ pello
 pendeo
 pendo
 penitus
-penus,
+penus
 pepulo
 per
 peracto
@@ -2037,7 +2037,7 @@ pictor
 pictoratus
 piger
 pignus
-piper,
+piper
 pipio
 pirum
 pirus
@@ -2105,7 +2105,7 @@ possum
 post
 postea
 posteri
-posterus,
+posterus
 posthabeo
 postpono
 postquam
@@ -2123,7 +2123,7 @@ praecelsus
 praecepio
 praeceptum
 praecido
-praecipio,
+praecipio
 praecipuus
 praeclarus
 praeconor
@@ -2139,11 +2139,11 @@ praegravo
 praemitto
 praemium
 praemo
-praenuntio,
+praenuntio
 praenuntius
 praepono
 praepositus
-praeproperus,
+praeproperus
 praesentia
 praesidium
 praestans
@@ -2158,7 +2158,7 @@ praetereo
 praeteritus
 praetermissio
 praetorgredior
-praevenio,
+praevenio
 praevenio
 pravitas
 preastolatio
@@ -2180,7 +2180,7 @@ princeps
 principatus
 principium
 prior
-priores,
+priores
 priscus
 pristinus
 prius
@@ -2274,7 +2274,7 @@ prosequor
 prosper
 prosperitas
 prosum
-protestor,
+protestor
 protinus
 protraho
 prout
@@ -2365,7 +2365,7 @@ qualitas
 qualiter
 quam
 quamdiu
-quamobrem,
+quamobrem
 quamquam
 quamtotius
 quamvis
@@ -2416,7 +2416,7 @@ quinam
 quingenti
 quinquennis
 quippe
-quisnam,
+quisnam
 quisquam
 quisque
 quisquis
@@ -2586,7 +2586,7 @@ scilicet
 scindo
 scio
 scisco
-scribo,
+scribo
 scrinium
 scriptor
 se
@@ -2709,10 +2709,10 @@ statua
 statuo
 stella
 stillicidium
-stipes,
 stipes
-stips,
-sto,
+stipes
+stips
+sto
 strenuus
 strues
 studio
@@ -2784,8 +2784,8 @@ tabgo
 tabula
 taceo
 tactus
-taedium,
-talio,
+taedium
+talio
 talis
 talus
 tam
@@ -2869,7 +2869,7 @@ torqueo
 torrens
 tot
 totidem
-toties,
+toties
 toties
 totus
 tracto
@@ -2910,7 +2910,7 @@ Tungris
 turba
 turbatio
 turbatus
-turbo,
+turbo
 turbo
 turpe
 turpis
@@ -2984,7 +2984,7 @@ ventito
 ventosus
 ventus
 venustas
-ver,
+ver
 verbera
 verbum
 vere
@@ -2998,7 +2998,7 @@ versus
 verto
 verumtamen
 verus
-vesco,
+vesco
 vesica
 vesper
 vespera
@@ -3021,7 +3021,7 @@ viduata
 viduo
 vigilo
 vigor
-vilicus,
+vilicus
 vilis
 vilitas
 villa
