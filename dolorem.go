@@ -12,78 +12,96 @@ import (
 	"time"
 )
 
-// TODO ADD TESTS!
-// TODO ADD COMMENTS!
-
 //go:embed data/latin.txt
-var dictionary string
+var latinDictionary string
 
 type Dolorem struct {
-	dictionary        []string
-	paragraph_starter string
-	text              string
-	seed              *rand.Rand
+	// Dictionary is an array of words used for generating text.
+	// It can be manually set to use external dictionaries.
+	Dictionary []string
+
+	// ParagraphStarter is the sentence that starts off the first paragraph in a set.
+	// It can be manually set to customize your paragraph starter.
+	ParagraphStarter string
+
+	// Text holds the last set of generated text, whether a word, sentence, or paragraph.
+	Text string
+
+	// seed is used to generate random numbers.
+	seed *rand.Rand
 }
 
+// Default initializer for Dolorem
 func Ipsum() Dolorem {
-	dict := loadDictionary()
+	dict := loadLatinDictionary()
 	return Dolorem{
-		dictionary:        dict,
-		seed:              rand.New(rand.NewSource(time.Now().Unix())),
-		paragraph_starter: "dolorem ipsum dolor sit amet, ",
+		Dictionary:       dict,
+		seed:             rand.New(rand.NewSource(time.Now().Unix())),
+		ParagraphStarter: "dolorem ipsum dolor sit amet, ",
 	}
 }
 
+// Pull a random word from Dictionary
 func (d *Dolorem) Word() string {
-	index := d.seed.Intn(len(d.dictionary) - 1)
-	d.text = d.dictionary[index]
-	return d.dictionary[index]
+	index := d.seed.Intn(len(d.Dictionary) - 1)
+	d.Text = d.Dictionary[index]
+	return d.Dictionary[index]
 }
 
+// Build a random sentence out of random Words
+// Takes 1 optional in param to override default options
+//
+// @param length[0]: Override number of Words per Sentence
 func (d *Dolorem) Sentence(length ...int) string {
-	sen_len := 15
+	senLen := 15 // Number of Words per Sentence
 	if len(length) > 0 {
-		sen_len = length[0] // Number of Words per Sentence
+		senLen = length[0]
 	}
 	sentence := ""
-	for i := 0; i < sen_len; i++ {
+	for i := 0; i < senLen; i++ {
 		sentence = sentence + d.Word()
-		if i < sen_len-1 || i == 0 {
+		if i < senLen-1 || i == 0 {
 			sentence = sentence + " "
 		}
 	}
-	d.text = sentence
+	d.Text = sentence
 	return sentence
 }
 
+// Build random Paragraphs out of random Sentences
+// Takes 3 optional int params to override default options
+//
+// @param length[0]: Override number of Paragraphs
+// @param length[1]: Override number of Sentences per Paragraph
+// @param length[2]: Override number of Words per Sentence
 func (d *Dolorem) Paragraph(length ...int) string {
-	num := 1      // Number of Paragraphs
-	par_len := 7  // Number of Sentences per Paragraph
-	sen_len := 15 // Number of Words per Sentence
+	num := 1     // Number of Paragraphs
+	parLen := 7  // Number of Sentences per Paragraph
+	senLen := 15 // Number of Words per Sentence
 	if len(length) > 0 {
-		num = length[0] // Number of Paragraphs
+		num = length[0]
 	}
 	if len(length) > 1 {
-		par_len = length[1] // Number of Sentences per Paragraph
+		parLen = length[1]
 	}
 	if len(length) > 2 {
-		sen_len = length[2] // Number of Words per Sentence
+		senLen = length[2]
 	}
-	var paragraph = d.paragraph_starter
+	var paragraph = d.ParagraphStarter
 	for i := 0; i < num; i++ {
-		for j := 0; j < par_len; j++ {
-			paragraph = paragraph + d.Sentence(sen_len)
+		for j := 0; j < parLen; j++ {
+			paragraph = paragraph + d.Sentence(senLen)
 		}
 		if i < num-1 {
 			paragraph = paragraph + "\n\n"
 		}
 	}
-	d.text = paragraph
+	d.Text = paragraph
 	return paragraph
 }
 
-func loadDictionary() []string {
-	return strings.Split(dictionary, "\n")
+func loadLatinDictionary() []string {
+	return strings.Split(latinDictionary, "\n")
 }
 
 // Dolorem is a highly inclusive (with a near complete Latin dictionary) Lorem Ipsum generator
