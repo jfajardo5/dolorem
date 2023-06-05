@@ -36,7 +36,7 @@ package myAmazingPackage
 
 import (
   // ...
-	"github.com/jfajardo5/dolorem"
+  "github.com/jfajardo5/dolorem"
 )
 ~~~
 
@@ -44,21 +44,21 @@ Initialize, and code away!
 
 ~~~
 
-	//***************
-	// Default Options
-	//*****************
+//***************
+// Default Options
+//*****************
 
-	// Initialize Dolorem
-	lorem := dolorem.Ipsum()
+// Initialize Dolorem
+lorem := dolorem.Ipsum()
 
-	// Random Paragraph
-	fmt.Println(lorem.Paragraph())
+// Random Paragraph
+fmt.Println(lorem.Paragraph())
 
-	// Random Sentence
-	fmt.Println(lorem.Sentence())
+// Random Sentence
+fmt.Println(lorem.Sentence())
 
-	// Random Word
-	fmt.Println(lorem.Word())
+// Random Word
+fmt.Println(lorem.Word())
 	
 ~~~
 
@@ -70,21 +70,21 @@ This module provides customizable options for specifying:
 
 ~~~
 
-  //**************
-	// Custom Options
-	//****************
+//**************
+// Custom Options
+//****************
 
-	// Single Sentence with x number of Words
-	fmt.Println(lorem.Sentence(5))
+// Single Sentence with x number of Words
+fmt.Println(lorem.Sentence(5))
 
-	// x number of Paragraphs
-	fmt.Println(lorem.Paragraph(3))
+// x number of Paragraphs
+fmt.Println(lorem.Paragraph(3))
 
-	// x number of Paragraphs with y number of Sentences per Paragraph
-	fmt.Println(lorem.Paragraph(2, 10))
+// x number of Paragraphs with y number of Sentences per Paragraph
+fmt.Println(lorem.Paragraph(2, 10))
 
-	// x number of Paragraphs with y number of Sentences with z number of Words per Sentence
-	fmt.Println(lorem.Paragraph(2, 12, 6))
+// x number of Paragraphs with y number of Sentences with z number of Words per Sentence
+fmt.Println(lorem.Paragraph(2, 12, 6))
 
 ~~~
 
@@ -94,20 +94,20 @@ This default can be overridden to your liking:
 
 ~~~
 
-	// Initialize Dolorem
-	lorem := dolorem.Ipsum()
+// Initialize Dolorem
+lorem := dolorem.Ipsum()
 
-  // Override ParagraphStarter
-	lorem.ParagraphStarter = "My custom paragraph starter, "
+// Override ParagraphStarter
+lorem.ParagraphStarter = "My custom paragraph starter, "
 
-	// Random Paragraph with custom ParagraphStarter
-	fmt.Println(lorem.Paragraph())
+// Random Paragraph with custom ParagraphStarter
+fmt.Println(lorem.Paragraph())
 
-  // It can also be overridden with an empty string
-  lorem.ParagraphStarter = ""
+// It can also be overridden with an empty string
+lorem.ParagraphStarter = ""
   
-  // Random Paragraph with no ParagraphStarter
-  fmt.Println(lorem.Paragraph())
+// Random Paragraph with no ParagraphStarter
+fmt.Println(lorem.Paragraph())
 
 ~~~
 
@@ -117,16 +117,18 @@ It can adapt any other []string!
 
 ~~~
 
-	// Initialize Dolorem
-	lorem := dolorem.Ipsum()
+// Initialize Dolorem
+lorem := dolorem.Ipsum()
 
-	// Override dictionary
-	lorem.Dictionary = []string{"my", "custom", "dictionary"}
+// Override dictionary
+lorem.Dictionary = []string{"my", "custom", "dictionary"}
 
-	// Random Paragraph from custom dictionary
-  fmt.Println(lorem.Paragraph())
+// Random Paragraph from custom dictionary
+ fmt.Println(lorem.Paragraph())
 
 ~~~
+
+Enjoy!
 
 
 
