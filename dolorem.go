@@ -43,9 +43,11 @@ func Ipsum() Dolorem {
 
 // Pull a random word from Dictionary
 func (d *Dolorem) Word() string {
-	index := d.seed.Intn(len(d.Dictionary) - 1)
+
+	index := d.seed.Intn(len(d.Dictionary))
 	d.Text = d.Dictionary[index]
-	return d.Dictionary[index]
+
+	return d.Text
 }
 
 // Build a random sentence out of random Words
@@ -53,19 +55,19 @@ func (d *Dolorem) Word() string {
 //
 // @param length[0]: Override number of Words per Sentence
 func (d *Dolorem) Sentence(length ...int) string {
+
 	senLen := 15 // Number of Words per Sentence
 	if len(length) > 0 {
 		senLen = length[0]
 	}
-	sentence := ""
+
+	var words []string
 	for i := 0; i < senLen; i++ {
-		sentence = sentence + d.Word()
-		if i < senLen-1 || i == 0 {
-			sentence = sentence + " "
-		}
+		words = append(words, d.Word())
 	}
-	d.Text = sentence
-	return sentence
+
+	d.Text = strings.Join(words[:], " ")
+	return d.Text
 }
 
 // Build random Paragraphs out of random Sentences
@@ -75,6 +77,7 @@ func (d *Dolorem) Sentence(length ...int) string {
 // @param length[1]: Override number of Sentences per Paragraph
 // @param length[2]: Override number of Words per Sentence
 func (d *Dolorem) Paragraph(length ...int) string {
+
 	num := 1     // Number of Paragraphs
 	parLen := 7  // Number of Sentences per Paragraph
 	senLen := 15 // Number of Words per Sentence
@@ -87,17 +90,20 @@ func (d *Dolorem) Paragraph(length ...int) string {
 	if len(length) > 2 {
 		senLen = length[2]
 	}
-	var paragraph = d.ParagraphStarter
+
+	var paragraphs []string
+	var sentences []string
+
 	for i := 0; i < num; i++ {
 		for j := 0; j < parLen; j++ {
-			paragraph = paragraph + d.Sentence(senLen)
+			sentences = append(sentences, d.Sentence(senLen))
 		}
-		if i < num-1 {
-			paragraph = paragraph + "\n\n"
-		}
+		paragraphs = append(paragraphs, strings.Join(sentences[:], " "))
+		sentences = nil
 	}
-	d.Text = paragraph
-	return paragraph
+
+	d.Text = d.ParagraphStarter + strings.Join(paragraphs[:], "\n\n")
+	return d.Text
 }
 
 func loadLatinDictionary() []string {
