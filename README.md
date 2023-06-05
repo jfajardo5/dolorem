@@ -16,8 +16,6 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-(Work in progress)
-
 Generate random Lorem Ipsum text for your project, drawing words from the full Latin dictionary!
 
 This module provides Lorem in the following formats:
@@ -27,6 +25,108 @@ This module provides Lorem in the following formats:
   * Word - A random word.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- USAGE -->
+## Usage
+
+Import the module into your project:
+
+~~~
+package myAmazingPackage
+
+import (
+  // ...
+	"github.com/jfajardo5/dolorem"
+)
+~~~
+
+Initialize, and code away!
+
+~~~
+
+	//***************
+	// Default Options
+	//*****************
+
+	// Initialize Dolorem
+	lorem := dolorem.Ipsum()
+
+	// Random Paragraph
+	fmt.Println(lorem.Paragraph())
+
+	// Random Sentence
+	fmt.Println(lorem.Sentence())
+
+	// Random Word
+	fmt.Println(lorem.Word())
+	
+~~~
+
+This module provides customizable options for specifying:
+
+  * Number of paragraphs
+  * Number of sentences per paragraph
+  * Number of words per sentence
+
+~~~
+
+  //**************
+	// Custom Options
+	//****************
+
+	// Single Sentence with x number of Words
+	fmt.Println(lorem.Sentence(5))
+
+	// x number of Paragraphs
+	fmt.Println(lorem.Paragraph(3))
+
+	// x number of Paragraphs with y number of Sentences per Paragraph
+	fmt.Println(lorem.Paragraph(2, 10))
+
+	// x number of Paragraphs with y number of Sentences with z number of Words per Sentence
+	fmt.Println(lorem.Paragraph(2, 12, 6))
+
+~~~
+
+By default, the very first Paragraph will always start with "dolorem ipsum dolor sit amet, "
+
+This default can be overridden to your liking:
+
+~~~
+
+	// Initialize Dolorem
+	lorem := dolorem.Ipsum()
+
+  // Override ParagraphStarter
+	lorem.ParagraphStarter = "My custom paragraph starter, "
+
+	// Random Paragraph with custom ParagraphStarter
+	fmt.Println(lorem.Paragraph())
+
+  // It can also be overridden with an empty string
+  lorem.ParagraphStarter = ""
+  
+  // Random Paragraph with no ParagraphStarter
+  fmt.Println(lorem.Paragraph())
+
+~~~
+
+You may also override the included dictionary with your custom dictionary.
+
+It can adapt any other []string!
+
+~~~
+
+	// Initialize Dolorem
+	lorem := dolorem.Ipsum()
+
+	// Override dictionary
+	lorem.Dictionary = []string{"my", "custom", "dictionary"}
+
+	// Random Paragraph from custom dictionary
+  fmt.Println(lorem.Paragraph())
+
+~~~
 
 
 
