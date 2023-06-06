@@ -92,7 +92,7 @@ fmt.Println(lorem.Paragraph(2, 12, 6))
 lorem := dolorem.Ipsum()
 
 // Override ParagraphStarter
-lorem.ParagraphStarter = "My custom paragraph starter, "
+lorem.ParagraphStarter = "My custom paragraph starter,"
 
 // Random Paragraph with custom ParagraphStarter
 fmt.Println(lorem.Paragraph())
