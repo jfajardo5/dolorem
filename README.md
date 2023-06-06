@@ -8,7 +8,7 @@
 
 <h1>Dolorem</h1>
   <p>
-    A highly inclusive Lorem Ipsum generator for Go!
+    A highly inclusive & customizable Lorem Ipsum generator for Go.
     <br />
   </p>
 </div>
@@ -29,7 +29,7 @@ This module provides Lorem in the following formats:
 <!-- USAGE -->
 ## Usage
 
-Import the module into your project:
+#### Import the module into your project:
 
 ~~~
 package myAmazingPackage
@@ -40,11 +40,10 @@ import (
 )
 ~~~
 
-
-Initialize Dolorem, and code away!
+<br />
+#### Initialize Dolorem, and code away!
 
 ~~~
-
 //***************
 // Default Options
 //*****************
@@ -60,18 +59,16 @@ fmt.Println(lorem.Sentence())
 
 // Random Word
 fmt.Println(lorem.Word())
-	
 ~~~
 
-
-This module provides customizable options for specifying:
+<br />
+#### This module provides customizable options for specifying:
 
   * Number of paragraphs
   * Number of sentences per paragraph
   * Number of words per sentence
 
 ~~~
-
 //**************
 // Custom Options
 //****************
@@ -87,15 +84,13 @@ fmt.Println(lorem.Paragraph(2, 10))
 
 // x number of Paragraphs with y number of Sentences with z number of Words per Sentence
 fmt.Println(lorem.Paragraph(2, 12, 6))
-
 ~~~
 
-
-By default, the very first Paragraph will always start with "Dolorem ipsum dolor sit amet,"
-This default can be overridden to your liking:
+<br />
+#### By default, the very first Paragraph will always start with "Dolorem ipsum dolor sit amet,"
+#### This default can be overridden to your liking:
 
 ~~~
-
 // Initialize Dolorem
 lorem := dolorem.Ipsum()
 
@@ -110,16 +105,14 @@ lorem.ParagraphStarter = ""
   
 // Random Paragraph with no ParagraphStarter
 fmt.Println(lorem.Paragraph())
-
 ~~~
 
+<br />
+#### You may also override the included dictionary with your custom dictionary.
 
-You may also override the included dictionary with your custom dictionary.
-
-It can adapt any other []string!
+#### It can adapt any other []string!
 
 ~~~
-
 // Initialize Dolorem
 lorem := dolorem.Ipsum()
 
@@ -128,11 +121,10 @@ lorem.Dictionary = []string{"my", "custom", "dictionary"}
 
 // Random Paragraph from custom dictionary
  fmt.Println(lorem.Paragraph())
-
 ~~~
 
-
-For even more advanced usage, you are able to override the default seed:
+<br />
+#### For even more advanced usage, you are able to override the default seed:
 
 ~~~
 // Initialize Dolorem
@@ -144,7 +136,7 @@ lorem.Seed = rand.New(rand.NewSource(time.Now().Unix()))
 // rand.New(rand.NewSource(time.Now().Unix())) is the default Seed Ipsum() initializes with
 ~~~
 
-### Enjoy!
+#### Enjoy!
 
 
 
