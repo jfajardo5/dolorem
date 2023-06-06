@@ -40,7 +40,8 @@ import (
 )
 ~~~
 
-Initialize, and code away!
+
+Initialize Dolorem, and code away!
 
 ~~~
 
@@ -61,6 +62,7 @@ fmt.Println(lorem.Sentence())
 fmt.Println(lorem.Word())
 	
 ~~~
+
 
 This module provides customizable options for specifying:
 
@@ -88,8 +90,8 @@ fmt.Println(lorem.Paragraph(2, 12, 6))
 
 ~~~
 
-By default, the very first Paragraph will always start with "dolorem ipsum dolor sit amet, "
 
+By default, the very first Paragraph will always start with "Dolorem ipsum dolor sit amet,"
 This default can be overridden to your liking:
 
 ~~~
@@ -111,6 +113,7 @@ fmt.Println(lorem.Paragraph())
 
 ~~~
 
+
 You may also override the included dictionary with your custom dictionary.
 
 It can adapt any other []string!
@@ -128,7 +131,20 @@ lorem.Dictionary = []string{"my", "custom", "dictionary"}
 
 ~~~
 
-Enjoy!
+
+For even more advanced usage, you are able to override the default seed:
+
+~~~
+// Initialize Dolorem
+lorem := dolorem.Ipsum()
+
+// Override Seed
+
+lorem.Seed = rand.New(rand.NewSource(time.Now().Unix()))
+// rand.New(rand.NewSource(time.Now().Unix())) is the default Seed Ipsum() initializes with
+~~~
+
+### Enjoy!
 
 
 
