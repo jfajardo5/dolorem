@@ -84,7 +84,7 @@ fmt.Println(lorem.Paragraph(2, 10))
 fmt.Println(lorem.Paragraph(2, 12, 6))
 ~~~
 
-#### By default, the very first Paragraph will always start with "Dolorem ipsum dolor sit amet,"
+#### By default, the very first Paragraph in a set will always start with "Dolorem ipsum dolor sit amet,"
 #### This default can be overridden to your liking:
 
 ~~~
