@@ -17,7 +17,7 @@ import (
 // dolorem.Ipsum() (Default Initializer)
 func TestDefaultInitializer(t *testing.T) {
 	lorem := dolorem.Ipsum()
-	t.Error("Testing workflow")
+
 	if lorem.ParagraphStarter != "Dolorem ipsum dolor sit amet," {
 		t.Error("@TestDefaultInitializer: Ipsum() did not return default ParagraphStarter.")
 	}
