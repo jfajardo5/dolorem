@@ -126,9 +126,7 @@ lorem.Dictionary = []string{"my", "custom", "dictionary"}
 lorem := dolorem.Ipsum()
 
 // Override Seed
-
 lorem.Seed = rand.New(rand.NewSource(time.Now().Unix()))
-// rand.New(rand.NewSource(time.Now().Unix())) is the default Seed Ipsum() initializes with
 ~~~
 
 #### Enjoy!
