@@ -24,88 +24,131 @@ type Dolorem struct {
 	// It can be manually set to customize your paragraph starter.
 	ParagraphStarter string
 
-	// Text holds the last set of generated text, whether a word, sentence, or paragraph.
-	Text string
-
-	// seed is used to generate random numbers.
-	seed *rand.Rand
+	// Seed is used to generate random numbers.
+	Seed *rand.Rand
 }
 
 // Default initializer for Dolorem
 func Ipsum() Dolorem {
-	dict := loadLatinDictionary()
 	return Dolorem{
-		Dictionary:       dict,
-		seed:             rand.New(rand.NewSource(time.Now().Unix())),
-		ParagraphStarter: "dolorem ipsum dolor sit amet, ",
+		Dictionary:       loadLatinDictionary(),
+		ParagraphStarter: "Dolorem ipsum dolor sit amet,",
+		Seed:             rand.New(rand.NewSource(time.Now().Unix())),
 	}
 }
 
 // Pull a random word from Dictionary
 func (d *Dolorem) Word() string {
-
-	index := d.seed.Intn(len(d.Dictionary))
-	d.Text = d.Dictionary[index]
-
-	return d.Text
+	index := d.Seed.Intn(len(d.Dictionary))
+	return firstCharToUpper(d.Dictionary[index])
 }
 
 // Build a random sentence out of random Words
 // Takes 1 optional in param to override default options
 //
 // @param length[0]: Override number of Words per Sentence
-func (d *Dolorem) Sentence(length ...int) string {
-
-	senLen := 15 // Number of Words per Sentence
-	if len(length) > 0 {
-		senLen = length[0]
+func (d *Dolorem) Sentence(arg ...int) string {
+	numberOfWordsPerSentence := 7
+	if len(arg) > 0 {
+		numberOfWordsPerSentence = arg[0]
 	}
 
 	var words []string
-	for i := 0; i < senLen; i++ {
-		words = append(words, d.Word())
+	for i := 0; i < numberOfWordsPerSentence; i++ {
+		words = append(words, strings.ToLower(d.Word()))
 	}
 
-	d.Text = strings.Join(words[:], " ")
-	return d.Text
+	return firstCharToUpper(strings.Join(words, " ")) + "."
 }
 
 // Build random Paragraphs out of random Sentences
 // Takes 3 optional int params to override default options
 //
-// @param length[0]: Override number of Paragraphs
-// @param length[1]: Override number of Sentences per Paragraph
-// @param length[2]: Override number of Words per Sentence
-func (d *Dolorem) Paragraph(length ...int) string {
+// @param args[0]: Override number of Paragraphs
+// @param args[1]: Override number of Sentences per Paragraph
+// @param args[2]: Override number of Words per Sentence
+func (d *Dolorem) Paragraph(args ...int) string {
+	numberOfParagraphs := 1
+	numberOfSentences := 7
+	numberOfWordsPerSentence := 7
 
-	num := 1     // Number of Paragraphs
-	parLen := 7  // Number of Sentences per Paragraph
-	senLen := 15 // Number of Words per Sentence
-	if len(length) > 0 {
-		num = length[0]
+	if len(args) > 0 {
+		numberOfParagraphs = args[0]
 	}
-	if len(length) > 1 {
-		parLen = length[1]
+	if len(args) > 1 {
+		numberOfSentences = args[1]
 	}
-	if len(length) > 2 {
-		senLen = length[2]
+	if len(args) > 2 {
+		numberOfWordsPerSentence = args[2]
 	}
 
 	var paragraphs []string
-	var sentences []string
 
-	for i := 0; i < num; i++ {
-		for j := 0; j < parLen; j++ {
-			sentences = append(sentences, d.Sentence(senLen))
-		}
-		paragraphs = append(paragraphs, strings.Join(sentences[:], " "))
-		sentences = nil
+	for i := 0; i < numberOfParagraphs; i++ {
+		sentences := d.buildParagraphBody(numberOfSentences, numberOfWordsPerSentence, i)
+		paragraphs = append(paragraphs, strings.Join(sentences, " "))
 	}
 
-	d.Text = d.ParagraphStarter + strings.Join(paragraphs[:], "\n\n")
-	return d.Text
+	return strings.Join(paragraphs, "\n\n")
 }
 
+// Logic for building a Paragraph's body
+func (d *Dolorem) buildParagraphBody(numberOfSentences int, numberOfWordsPerSentence int, currentIteration int) []string {
+	var sentences []string
+	if currentIteration == 0 && d.ParagraphStarter != "" {
+		starter := strings.ToLower(d.ParagraphStarter)
+		starter = firstCharToUpper(starter)
+		sentences = append(sentences, starter)
+	}
+	for i := 0; i < numberOfSentences; i++ {
+		sentences = append(sentences, d.buildSentenceBody(sentences, numberOfSentences, numberOfWordsPerSentence, i))
+	}
+	return sentences
+}
+
+// Logic for building Sentence body within a Paragraph
+func (d *Dolorem) buildSentenceBody(sentences []string, numberOfSentences int, numberOfWordsPerSentence int, currentIteration int) string {
+	sentence := strings.ReplaceAll(d.Sentence(numberOfWordsPerSentence), ".", "")
+	sentence = strings.ToLower(sentence)
+	sentence = d.addRandomCommaOrPeriod(sentence, numberOfSentences, currentIteration)
+	if len(sentences) == 0 || endsWithPeriod(sentences[len(sentences)-1]) {
+		sentence = firstCharToUpper(sentence)
+	}
+	return sentence
+}
+
+// Adds a period (.) or a comma(,) at the end of the parameter string
+func (d *Dolorem) addRandomCommaOrPeriod(sentence string, numberOfSentences int, currentIndex int) string {
+	if numberOfSentences-currentIndex <= 1 {
+		return sentence + "."
+	}
+	rng := d.Seed.Intn(10)
+	if rng < 3 {
+		return sentence + "."
+	}
+	return sentence + ","
+}
+
+// Checks if the parameter string ends with a period (.)
+func endsWithPeriod(sentence string) bool {
+	if strings.LastIndex(sentence, ".") == len(sentence)-1 {
+		return true
+	}
+	return false
+}
+
+// Returns the parameter string with its first char capitalized
+func firstCharToUpper(text string) string {
+	if len(text) > 1 {
+		return strings.Replace(text, string(text[0]), strings.ToUpper(string(text[0])), 1)
+	}
+	return strings.ToUpper(text)
+}
+
+// Packs and returns data/latin.txt as an array
+//
+// This file contains the full Latin dictionary,
+// with each word separated by a space (\n)
 func loadLatinDictionary() []string {
 	return strings.Split(latinDictionary, "\n")
 }
