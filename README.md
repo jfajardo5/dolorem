@@ -40,7 +40,6 @@ import (
 )
 ~~~
 
-<br />
 #### Initialize Dolorem, and code away!
 
 ~~~
@@ -61,7 +60,6 @@ fmt.Println(lorem.Sentence())
 fmt.Println(lorem.Word())
 ~~~
 
-<br />
 #### This module provides customizable options for specifying:
 
   * Number of paragraphs
@@ -86,7 +84,6 @@ fmt.Println(lorem.Paragraph(2, 10))
 fmt.Println(lorem.Paragraph(2, 12, 6))
 ~~~
 
-<br />
 #### By default, the very first Paragraph will always start with "Dolorem ipsum dolor sit amet,"
 #### This default can be overridden to your liking:
 
@@ -107,7 +104,6 @@ lorem.ParagraphStarter = ""
 fmt.Println(lorem.Paragraph())
 ~~~
 
-<br />
 #### You may also override the included dictionary with your custom dictionary.
 
 #### It can adapt any other []string!
@@ -123,7 +119,6 @@ lorem.Dictionary = []string{"my", "custom", "dictionary"}
  fmt.Println(lorem.Paragraph())
 ~~~
 
-<br />
 #### For even more advanced usage, you are able to override the default seed:
 
 ~~~
