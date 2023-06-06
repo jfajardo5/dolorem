@@ -14,7 +14,7 @@
 </div>
 
 <!-- ABOUT THE PROJECT -->
-## About The Project
+## About this module
 
 Generate random Lorem Ipsum text for your project, drawing words from the full Latin dictionary!
 
