@@ -36,6 +36,10 @@ func TestWord(t *testing.T) {
 	if result != "Test" && result != "Go" {
 		t.Error("@TestWord: Word() did not return a value from it's dictionary")
 	}
+
+	if !unicode.IsUpper(rune(result[0])) {
+		t.Error("@TestWord: Word() did not return a value with the expected uppercase first char")
+	}
 }
 
 // dolorem.Sentence() - Returns a single Sentence with 7 random Words from the dictionary
@@ -75,6 +79,7 @@ func TestDefaultParagraph(t *testing.T) {
 	}
 
 	paragraphs := strings.Split(result, "\n\n")
+
 	if len(paragraphs) != 1 {
 		t.Error("@TestDefaultParagraph: Paragraph() did not return Paragraph of expected default number")
 	}
